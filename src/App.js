@@ -1,25 +1,22 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import { publicRoutes as routes } from '~/routes'
+import { DefaultLayout } from '~/component/Layout'
 
 function App() {
-  const info = {
-    name: 'app',
-    time: '27/01',
-    id: 123,
-  }
-  const [state, setState] = useState(info);
-
-  function handleClick() {
-    setState({
-      ...state,
-      power: '100%'
-    });
-  }
 
   return (
-    <div className="App">
-        <h1>{JSON.stringify(state)}</h1>
-        <button onClick={handleClick}>Click here</button>
-    </div>
+    <Router>
+      <Routes>
+          {routes.map((route, index) => {
+            const Layout = route.layout || DefaultLayout
+            const Page = route.component
+            return (
+              // Có thể bỏ thẳng component vào nhưng nên thông qua một constain cho biết nó là component 
+              <Route key={index} path={route.path} element={<Layout> <Page /> </Layout>} />)
+          })}
+      </Routes>
+    </Router>
   );
 }
 

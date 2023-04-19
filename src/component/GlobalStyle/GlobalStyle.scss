@@ -3,10 +3,17 @@
 
 :root {
     --primary: #fe2c55;
+    --text-color: rgba(22, 24, 35, 1);;
+    --white: #fff;
 
+    // Layout Default
+    --layout-default-header-hight: 60px;
+    --layout-default-width: 1150px;
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -19,4 +26,14 @@ body {
     font-size: 1.6rem;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+}
+
+button, input, [tabindex] {
+    border: none;
+    outline: none;   
+}
+
+a[href] {
+    text-decoration: none;
+    color: var(--text-color);
 }

@@ -8,6 +8,7 @@ import styles from './Header.module.scss'
 import images from '~/assets/images';
 import { Wrapper as WrapperPopper } from '~/component/Popper'
 import AccountItem from '../../AccountItem';
+import Button from '~/component/Button';
 
 const cx = classNames.bind(styles)
 
@@ -15,7 +16,7 @@ function Header() {
     const [searchResult, setSearchResult] = useState([])
 
     useEffect(() => {
-        setSearchResult([1, 2, 3])
+        setSearchResult([])
     }, [])
     
     return ( 
@@ -46,7 +47,10 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('action')}></div>
+                <div className={cx('action')}>
+                    <Button outline target="_blank" >Upload</Button>
+                    <Button primary disabled onClick={() => alert('Upload')}>Log in</Button>
+                </div>
             </div>
         </div>
      );

@@ -40,14 +40,14 @@
     display: flex;
     align-items: center;
     border-radius: var(--border-radius-search);
-    background-color: rgba(22, 24, 35, .06);
+    background-color: rgba(22, 24, 35, 0.06);
     border: 1px solid transparent;
 
     &:focus-within {
         border-color: #c5c6c9;
     }
 
-    input:not(:placeholder-shown) ~ .search-btn  {
+    input:not(:placeholder-shown) ~ .search-btn {
         color: rgba(22, 24, 35, 0.75);
     }
 }
@@ -82,12 +82,12 @@
     cursor: pointer;
 
     &:active {
-        background-color: rgba(22, 24, 35, .06);
+        background-color: rgba(22, 24, 35, 0.06);
     }
 
     &::after {
         position: absolute;
-        content: "";
+        content: '';
         display: block;
         height: 28px;
         left: 0;
@@ -95,7 +95,7 @@
         transform: translateY(-50%);
         height: 28px;
         width: 1px;
-        background-color: rgba(22, 24, 35, .12);
+        background-color: rgba(22, 24, 35, 0.12);
     }
 }
 
@@ -103,3 +103,26 @@
     display: flex;
     align-items: center;
 }
+
+.btn-action {
+    margin-right: 24px;
+    font-size: 2.6rem;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.more-option {
+    background-color: transparent;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 6px;
+    margin-left: calc(var(--margin-btn-action-header) - 6px);
+}
+

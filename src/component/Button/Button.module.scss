@@ -10,29 +10,29 @@
     text-align: center;
 
     + .wrapper {
-        margin-left: 8px;
+        margin-left: var(--margin-btn-action-header);
     }
 
     &.disabled {
         pointer-events: none;
         user-select: none;
-        opacity: 0.8;
+        opacity: 0.6;
     }
 }
 
 // Button types
 .primary {
-    color: var(--white) !important;
-    background-color: rgba(255, 59, 92, 1) !important;
+    color: var(--white);
+    background-color: rgba(255, 59, 92, 1);
     border: 1px solid transparent;
 
     &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
 }
 
 .outline {
-    color: rgba(255, 59, 92, 1) !important;
+    color: rgba(255, 59, 92, 1);
     border: 1px solid currentColor;
 
     &:hover {
@@ -68,4 +68,16 @@
 .large {
     min-width: 168px;
     padding: 12px 6px;
+}
+
+// icon
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
 }

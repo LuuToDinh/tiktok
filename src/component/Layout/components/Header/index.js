@@ -1,9 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faCircleXmark,
-    faCircleNotch,
-    faMagnifyingGlass,
     faSignIn,
     faEllipsisVertical,
     faEarthAsia,
@@ -15,18 +12,17 @@ import {
     faUser,
     faCloudUpload,
 } from '@fortawesome/free-solid-svg-icons';
-import { faMessage, faMoon, faEnvelopeOpen, } from '@fortawesome/free-regular-svg-icons';
-import TippyHeadless from '@tippyjs/react/headless';
-import { useState, useEffect } from 'react';
+import { faMoon } from '@fortawesome/free-regular-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import images from '~/assets/images';
-import { Wrapper as WrapperPopper } from '~/component/Popper';
-import AccountItem from '../../AccountItem';
 import Menu from '~/component/Menu';
 import Button from '~/component/Button';
 import styles from './Header.module.scss'; // thứ tự import css sau ghi đè trước
+import { Inbox, Message } from '~/assets/Icon';
+import Image from '~/component/Image';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 
@@ -84,17 +80,11 @@ const userMenu = [
         title: 'Log out',
         separate: true,
     },
-]
+];
 
 const useLogin = true;
 
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
-
-    useEffect(() => {
-        setSearchResult([]);
-    }, []);
-
     const hanlderOnClickItem = (item) => {
         switch (item.type) {
             case 'language':
@@ -108,56 +98,26 @@ function Header() {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img className={cx('logo')} src={images.logo} alt="logo"></img>
-                <TippyHeadless
-                    interactive={true}
-                    visible={searchResult.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} content="Tìm kiếm" tabIndex="-1" {...attrs}>
-                            <WrapperPopper>
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </WrapperPopper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input className={cx('input')} type="text" placeholder="Search"></input>
-                        <FontAwesomeIcon className={cx('close')} icon={faCircleXmark} />
-                        <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch} />
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </TippyHeadless>
+
+                {/* Search */}
+                <Search />
 
                 <div className={cx('action')}>
                     {useLogin ? (
                         <>
-                            <Tippy
-                                content="Upload"
-                                className={cx('upload')}
-                            >
+                            <Tippy content="Upload" className={cx('upload')}>
                                 <button className={cx('btn-action')}>
                                     <FontAwesomeIcon icon={faCloudUpload} />
                                 </button>
                             </Tippy>
-                            <Tippy
-                                content="Messages"
-                                className={cx('message')}
-                            >
+                            <Tippy content="Messages" className={cx('message')}>
                                 <button className={cx('btn-action')}>
-                                    <FontAwesomeIcon icon={faEnvelopeOpen} />
+                                    <Message />
                                 </button>
                             </Tippy>
-                            <Tippy
-                                content="Inbox"
-                                className={cx('inbox')}
-                            >
+                            <Tippy content="Inbox" className={cx('inbox')}>
                                 <button className={cx('btn-action')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <Inbox />
                                 </button>
                             </Tippy>
                         </>
@@ -180,7 +140,12 @@ function Header() {
 
                     <Menu onClickItem={hanlderOnClickItem} items={useLogin ? userMenu : MENU_ITEMS}>
                         {useLogin ? (
-                            <img className={cx('user-avatar')} src={"https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/075720524e0119d1e23aae89160e30f4~c5_100x100.jpeg?x-expires=1682431200&amp;x-signature=mW%2FZDC4f1jhl9xN%2B2IXoZ1Mnqz8%3D"} alt="User avatar"/>
+                            <Image
+                                className={cx('user-avatar')}
+                                src='https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/075720524e0119d1e23aae89160e30f4~c5_100x100.jpeg?x-expires=1682431200&amp;x-signature=mW%2FZDC4f1jhl9xN%2B2IXoZ1Mnqz8%3D'
+                                alt="User avatar"
+                                fallback="https://yt3.ggpht.com/IOaHOJq3ifwQ0jtc7XhCJ2tezUk6pzEy_WmzQIWSzZh8YKmKI3fChIAzxny9aGBCJmBa5QmAHMI=s88-c-k-c0x00ffffff-no-rj-mo"
+                            />
                         ) : (
                             <button className={cx('more-option')}>
                                 <FontAwesomeIcon className={cx('more-option-icon')} icon={faEllipsisVertical} />

@@ -23,14 +23,40 @@ html {
 }
 
 body {
-    font-family: 'Proxima Nova', sans-serif;
+    font-family: 'ProximaNova', 'Arial', 'Tahoma' ,sans-serif;
     font-size: 1.6rem;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     color: var(--text-color);
 }
 
-// 
+// ProximaNova
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+
+// ProximaNova
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Semibold.woff2');
+    font-weight: 600;
+}
+
+// ProximaNova
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Bold.woff2');
+    font-weight: 700;
+}
+
+// ProximaNova
+@font-face {
+    font-family: SofiaPro;
+    src: url('/assets/fonts/sofiapro-bold.woff2');
+    font-weight: 700;
+}
 
 button,
 input,

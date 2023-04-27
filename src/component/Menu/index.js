@@ -9,7 +9,7 @@ import Header from './Header';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items, onClickItem }) {
+function Menu({ children, items, hideOnClick = false, onClickItem }) {
     // Xử lý logic nhiều lớp (nếu clicks vào sẽ push vào cuối array và lấy nó render, back thì pop nó đi sẽ lấy cái trước đó của array)
     const [history, setHistory] = useState([{ data: items }]); // mảng 1 phần tử là 1 object có key là data: []
     const current = history[history.length - 1];    
@@ -35,6 +35,7 @@ function Menu({ children, items, onClickItem }) {
     return (
         <Tippy
             // visible
+            hideOnClick={hideOnClick}
             interactive
             delay={[0, 700]}
             placement="bottom-end"

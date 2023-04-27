@@ -37,6 +37,14 @@ function Search() {
     const handleHideResult = () => {
         setFocusSearch(false)
     }
+    
+    const handleInput = e => {
+        const searchInputValue = e.target.value
+
+        if(!searchInputValue.startsWith(' ')){
+            setSearchValue(searchInputValue)
+        }
+    }
 
     useEffect(() => {
         if(!searchValue.trim()) {
@@ -81,7 +89,7 @@ function Search() {
                     className={cx('input')}
                     type="text"
                     placeholder="Search"
-                    onInput={e => {setSearchValue(e.target.value)}}
+                    onInput={handleInput}
                     onFocus={() => setFocusSearch(true)}
                 />
                 {!!searchValue && !loadingResult && <button
@@ -91,7 +99,7 @@ function Search() {
                     <FontAwesomeIcon icon={faCircleXmark} />
                 </button>}
                 {loadingResult && <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch} />}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={e => {e.preventDefault()}}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </div>

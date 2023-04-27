@@ -34,7 +34,6 @@ function Menu({ children, items, hideOnClick = false, onClickItem }) {
 
     return (
         <Tippy
-            // visible
             hideOnClick={hideOnClick}
             interactive
             delay={[0, 700]}
@@ -46,7 +45,9 @@ function Menu({ children, items, hideOnClick = false, onClickItem }) {
                         {history.length > 1 && <Header onBack={() => 
                             setHistory(pre => pre = pre.slice(0, pre.length - 1))} 
                         />}
-                        {renderItems()}
+                        <div className={cx('menu-language')}>
+                            {renderItems()}
+                        </div>
                     </WrapperPopper>
                 </div>)}
             onHide={() => setHistory(pre => pre.slice(0, 1))}

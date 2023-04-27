@@ -15,7 +15,9 @@ import {
 import { faMoon } from '@fortawesome/free-regular-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
+import routesConfig from '~/config/routes'
 import images from '~/assets/images';
 import Menu from '~/component/Menu';
 import Button from '~/component/Button';
@@ -97,7 +99,9 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img className={cx('logo')} src={images.logo} alt="logo"></img>
+                <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <img className={cx('logo')} src={images.logo} alt="logo"></img>
+                </Link>
 
                 {/* Search */}
                 <Search />

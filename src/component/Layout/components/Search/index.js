@@ -9,20 +9,23 @@ import TippyHeadless from '@tippyjs/react/headless';
 import { useState, useEffect, useRef } from 'react';
 import 'tippy.js/dist/tippy.css';
 
+import * as searchService from '~/apiServices/searchService'
 import { Wrapper as WrapperPopper } from '~/component/Popper';
 import AccountItem from '../../AccountItem';
 import styles from './Search.module.scss'
-import MenuItem from '~/component/Menu/MenuItem';
+import { useDebounce } from '~/hooks'
 
 const cx = classNames.bind(styles);
 
 // Hiện tipyy cần: focus và có search result
 function Search() {
-    const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('')
+    const [searchResult, setSearchResult] = useState([]);
     const [focusSearch, setFocusSearch] = useState(false)
     const [loadingResult, setLoadingResult] = useState(false)
 
+    const debouncedSearch = useDebounce(searchValue, 500)
+    
     const inputRef = useRef()
 
     const handleClear = () => {
@@ -41,16 +44,19 @@ function Search() {
             return;
         }
         
-        setLoadingResult(true)
+        // .then(res => res.json())
+        const fetchApi = async () => {
+            setLoadingResult(true)
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}a&type=less`)
-            .then(res => res.json())
-            .then(res => {
-                setSearchResult(res.data)
-                setLoadingResult(false)
-            })
+            const res = await searchService.search(debouncedSearch)
+            
+            setSearchResult(res)
+            setLoadingResult(false)
+        }
 
-    }, [searchValue]);
+        fetchApi()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [debouncedSearch]);
 
     return (
         <TippyHeadless

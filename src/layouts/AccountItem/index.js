@@ -3,6 +3,7 @@ import styles from './AccountItem.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from 'prop-types'
 import Image from '~/component/Image'
 
 const cx = classNames.bind(styles)
@@ -20,6 +21,10 @@ function AccountItem({ data }) {
             </div>
         </Link>
     );
+}
+
+AccountItem.propTypes = {
+    data: PropTypes.object
 }
 
 export default AccountItem;

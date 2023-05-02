@@ -1,0 +1,73 @@
+.wrapper {
+    width: 320px;
+    padding: 20px;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.follow-btn {
+    padding: 6px 8px;
+}
+
+.info {
+    margin-bottom: 8px;
+}
+
+.nickname {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.check {
+    font-size: 1.4rem;
+    color: rgb(32, 213, 236);
+    margin-left: 4px;
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.statistics {
+    display: flex;
+}
+
+.topic {
+    display: flex;
+}
+
+.topic + .topic {
+    margin-left: 12px;
+}
+
+.value {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.type {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #161823bf;
+}

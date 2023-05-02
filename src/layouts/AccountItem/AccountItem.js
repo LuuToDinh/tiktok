@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types'
-import Image from '~/component/Image'
+import Image from '~/components/Image'
 
 const cx = classNames.bind(styles)
 

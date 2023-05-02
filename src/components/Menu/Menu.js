@@ -4,7 +4,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Menu.module.scss';
-import { Wrapper as WrapperPopper } from '~/component/Popper';
+import { Wrapper as WrapperPopper } from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 
@@ -70,7 +70,7 @@ function Menu({ children, items=[], hideOnClick = false, onClickItem }) {
 
 Menu.propTypes = {
     children: PropTypes.node.isRequired,
-    items: PropTypes.object,
+    items: PropTypes.array,
     hideOnClick: PropTypes.bool,
     onClickItem: PropTypes.func,
 }

@@ -1,0 +1,84 @@
+.wrapper {
+    padding: 16px 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0px;
+        width: calc(100% - 16px);
+        height: 1px;
+        background: rgba(22, 24, 35, 0.12);
+        transform: scaleY(0.5);
+    }
+}
+
+.label {
+    margin-bottom: 8px;
+    padding: 0 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, .75);
+}
+
+.more-btn {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary);
+    padding: 8px 8px 0;
+    cursor: pointer;
+}
+
+// Account item 
+.account-item {
+    display: flex;
+    padding: 8px;
+    transition: background-color 200ms ease-in-out 0s;
+    border-radius: 4px;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info {
+    flex: 1;
+    overflow-x: hidden;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-left: 12px;
+    line-height: 1.3;
+}
+
+.nickname {
+    display: flex;
+}
+
+.username {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.check {
+    font-size: 1.4rem;
+    color: rgb(32, 213, 236);
+    margin-left: 4px;
+}
+
+.name {
+    font-size: 1.2rem;
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -10,7 +10,7 @@ import { useState, useEffect, useRef } from 'react';
 import 'tippy.js/dist/tippy.css';
 
 import * as searchService from '~/services/searchService'
-import { Wrapper as WrapperPopper } from '~/component/Popper';
+import { Wrapper as WrapperPopper } from '~/components/Popper';
 import AccountItem from '../../AccountItem';
 import styles from './Search.module.scss'
 import { useDebounce } from '~/hooks'

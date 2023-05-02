@@ -19,11 +19,11 @@ import { Link } from 'react-router-dom';
 
 import config from '~/config'
 import images from '~/assets/images';
-import Menu from '~/component/Menu';
-import Button from '~/component/Button';
+import Menu from '~/components/Menu';
+import Button from '~/components/Button';
 import styles from './Header.module.scss'; // thứ tự import css sau ghi đè trước
-import { Inbox, Message } from '~/component/Icons';
-import Image from '~/component/Image';
+import { Inbox, Message } from '~/components/Icons';
+import Image from '~/components/Image';
 import Search from '../Search';
 
 const cx = classNames.bind(styles);
